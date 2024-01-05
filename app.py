@@ -6,6 +6,8 @@ from dash.dependencies import Input, Output
 import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
+from rdflib import Graph, URIRef, Namespace, Literal
+from rdflib.plugins.sparql import prepareQuery
 
 app = Flask(__name__)
 app_dash = dash.Dash(__name__, server=app)

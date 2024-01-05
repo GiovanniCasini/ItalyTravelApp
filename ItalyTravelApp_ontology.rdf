@@ -1,0 +1,999 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology/"
+     xml:base="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ItalyTravelApp_Ontology="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasActivity -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasActivity">
+        <owl:equivalentProperty>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isLocated"/>
+            </rdf:Description>
+        </owl:equivalentProperty>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasProperties"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isLocated"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Activities"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Destination"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasProperties -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasProperties"/>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasReastaurant -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasReastaurant">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasProperties"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Restaurant"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Destination"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasTurism -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasTurism">
+        <owl:equivalentProperty>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isTurismOf"/>
+            </rdf:Description>
+        </owl:equivalentProperty>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasProperties"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isTurismOf"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Destination"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasWeather -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasWeather">
+        <owl:equivalentProperty>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isTurismOf"/>
+            </rdf:Description>
+        </owl:equivalentProperty>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasProperties"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isWeatherOf"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Destination"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isLocated -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isLocated">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isProperties"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Destination"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Activities"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isProperties -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isProperties"/>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isSimilarTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isSimilarTo">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Destination"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Destination"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isTurismOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isTurismOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isProperties"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Destination"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isWeatherOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isWeatherOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isProperties"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Destination"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Address -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Address">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Link -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Link">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Name">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Region -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Region">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Turism -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Turism">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Weather -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Weather">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Activities -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Activities"/>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Art_and_Culture -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Art_and_Culture">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Activities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#City -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#City">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Destination"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Destination -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Destination"/>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Gluten_Free -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Gluten_Free">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Restaurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Historical_Buildings -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Historical_Buildings">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Art_and_Culture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Local_Food -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Local_Food">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Restaurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Meat -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Meat">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Restaurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Museums -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Museums">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Art_and_Culture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Night_Life -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Night_Life">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Activities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Restaurant -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Restaurant"/>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Sea_and_Beach -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Sea_and_Beach">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Activities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Shopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Shopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Activities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Town -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Town">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Destination"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Vegan -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Vegan">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Restaurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Vegetarian -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Vegetarian">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Restaurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Village -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Village">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Destination"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Wine_and_Tasting -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Wine_and_Tasting">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Activities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Hiking/Skiing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Hiking/Skiing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Activities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Historical_Villages/sites -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Historical_Villages/sites">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Art_and_Culture"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Abetone -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Abetone">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Hiking/Skiing"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Orsigna"/>
+        <ItalyTravelApp_Ontology:Name>Abetone</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Accademia_delle_Belle_Arti -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Accademia_delle_Belle_Arti">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Museums"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Florence"/>
+        <ItalyTravelApp_Ontology:Address>Via Ricasoli, 66, 50122 Firenze FI, Italia</ItalyTravelApp_Ontology:Address>
+        <ItalyTravelApp_Ontology:Link>https://www.accademia.firenze.it/it/</ItalyTravelApp_Ontology:Link>
+        <ItalyTravelApp_Ontology:Name>Accademia di Belle Arti di Firenze</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Accademia_delle_Belle_Arti"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isLocated"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Florence"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Altare_della_Patria -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Altare_della_Patria">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Historical_Buildings"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Rome"/>
+        <ItalyTravelApp_Ontology:Address>Piazza Venezia, 00186 Roma RM, Italia</ItalyTravelApp_Ontology:Address>
+        <ItalyTravelApp_Ontology:Link>https://vive.cultura.gov.it/it/</ItalyTravelApp_Ontology:Link>
+        <ItalyTravelApp_Ontology:Name>Monumento a Vittorio Emanuele II</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Arezzo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Arezzo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Town"/>
+        <ItalyTravelApp_Ontology:Name>Arezzo</ItalyTravelApp_Ontology:Name>
+        <ItalyTravelApp_Ontology:Region>Toscana</ItalyTravelApp_Ontology:Region>
+        <ItalyTravelApp_Ontology:Turism>Moderate</ItalyTravelApp_Ontology:Turism>
+        <ItalyTravelApp_Ontology:Weather>Hot in Summer and cold in WInter</ItalyTravelApp_Ontology:Weather>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Argentario -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Argentario">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Town"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Cala_del_Gesso"/>
+        <ItalyTravelApp_Ontology:Name>Argentario</ItalyTravelApp_Ontology:Name>
+        <ItalyTravelApp_Ontology:Region>Toscana</ItalyTravelApp_Ontology:Region>
+        <ItalyTravelApp_Ontology:Turism>High</ItalyTravelApp_Ontology:Turism>
+        <ItalyTravelApp_Ontology:Weather>Hot in Summer and warm in Winter</ItalyTravelApp_Ontology:Weather>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Argentario"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasActivity"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Cala_del_Gesso"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Brera_District -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Brera_District">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Shopping"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Milan"/>
+        <ItalyTravelApp_Ontology:Name>Brera District</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Cala_del_Gesso -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Cala_del_Gesso">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Sea_and_Beach"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Argentario"/>
+        <ItalyTravelApp_Ontology:Name>Cala del Gesso Beach</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Case_di_Viso -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Case_di_Viso">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Hiking/Skiing"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Val_Camonica"/>
+        <ItalyTravelApp_Ontology:Name>Case di Viso</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Castello_Sforzesco -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Castello_Sforzesco">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Historical_Buildings"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Milan"/>
+        <ItalyTravelApp_Ontology:Address>Piazza Castello, 20121 Milano MI, Italia</ItalyTravelApp_Ontology:Address>
+        <ItalyTravelApp_Ontology:Link>https://www.milanocastello.it</ItalyTravelApp_Ontology:Link>
+        <ItalyTravelApp_Ontology:Name>Castello Sforzesco</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Cattedrale_di_Santa_Maria_del_Fiore -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Cattedrale_di_Santa_Maria_del_Fiore">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Historical_Buildings"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Florence"/>
+        <ItalyTravelApp_Ontology:Address>Piazza del Duomo, 50122 Firenze FI, Italia</ItalyTravelApp_Ontology:Address>
+        <ItalyTravelApp_Ontology:Link>https://duomo.firenze.it/it/scopri/cattedrale-di-santa-maria-del-fiore</ItalyTravelApp_Ontology:Link>
+        <ItalyTravelApp_Ontology:Name>Cattedrale di Santa Maria del Fiore</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Cattedrale_di_Santa_Maria_del_Fiore"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isLocated"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Florence"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Colosseo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Colosseo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Historical_Buildings"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Rome"/>
+        <ItalyTravelApp_Ontology:Address>Piazza del Colosseo, 1, 00184 Roma RM, Italia</ItalyTravelApp_Ontology:Address>
+        <ItalyTravelApp_Ontology:Link>https://colosseo.it</ItalyTravelApp_Ontology:Link>
+        <ItalyTravelApp_Ontology:Name>Colosseo</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Conero -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Conero">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Town"/>
+        <ItalyTravelApp_Ontology:Name>Conero</ItalyTravelApp_Ontology:Name>
+        <ItalyTravelApp_Ontology:Region>Marche</ItalyTravelApp_Ontology:Region>
+        <ItalyTravelApp_Ontology:Turism>High</ItalyTravelApp_Ontology:Turism>
+        <ItalyTravelApp_Ontology:Weather>Hot in Summer and warm in Winter</ItalyTravelApp_Ontology:Weather>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Corso_Buenos_Aires -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Corso_Buenos_Aires">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Shopping"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Milan"/>
+        <ItalyTravelApp_Ontology:Name>Corso Buenos Aires</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Corso_Como -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Corso_Como">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Night_Life"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Milan"/>
+        <ItalyTravelApp_Ontology:Name>Corso Como</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Enoteca_Alessi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Enoteca_Alessi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Wine_and_Tasting"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Florence"/>
+        <ItalyTravelApp_Ontology:Address>Via dell&apos;Oche, 27/red, 50122 Firenze FI, Italia</ItalyTravelApp_Ontology:Address>
+        <ItalyTravelApp_Ontology:Link>https://www.enotecaalessi.it</ItalyTravelApp_Ontology:Link>
+        <ItalyTravelApp_Ontology:Name>Enoteca Alessi</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Enoteca_Alessi"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isLocated"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Florence"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Florence -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Florence">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#City"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Accademia_delle_Belle_Arti"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Cattedrale_di_Santa_Maria_del_Fiore"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Enoteca_Alessi"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Galleria_degli_Uffizzi"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Moyo"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Museo_Opera_del_Duomo"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Palazzo_Vecchio"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Via_Tornabuoni"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Via_dei_Calzaiuoli"/>
+        <ItalyTravelApp_Ontology:isSimilarTo rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Rome"/>
+        <ItalyTravelApp_Ontology:Name>Firenze</ItalyTravelApp_Ontology:Name>
+        <ItalyTravelApp_Ontology:Region>Toscana</ItalyTravelApp_Ontology:Region>
+        <ItalyTravelApp_Ontology:Turism>Medium-High</ItalyTravelApp_Ontology:Turism>
+        <ItalyTravelApp_Ontology:Weather>Hot during the Summer and cold in the Winter</ItalyTravelApp_Ontology:Weather>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Fori_Romani -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Fori_Romani">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Historical_Villages/sites"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Rome"/>
+        <ItalyTravelApp_Ontology:Address>Via dei Fori Imperiali, 00187 Roma RM, Italia</ItalyTravelApp_Ontology:Address>
+        <ItalyTravelApp_Ontology:Link>https://www.sovraintendenzaroma.it/i_luoghi/roma_antica/aree_archeologiche/fori_imperiali</ItalyTravelApp_Ontology:Link>
+        <ItalyTravelApp_Ontology:Name>Fori Imperiali - Ingresso Foro di Cesare</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Galleria_Borghese -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Galleria_Borghese">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Museums"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Rome"/>
+        <ItalyTravelApp_Ontology:Address>https://galleriaborghese.beniculturali.it</ItalyTravelApp_Ontology:Address>
+        <ItalyTravelApp_Ontology:Link>Piazzale Scipione Borghese, 5, 00197 Roma RM, Italia</ItalyTravelApp_Ontology:Link>
+        <ItalyTravelApp_Ontology:Name>Museo e Galleria Borghese</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Galleria_Vittorio_Emanuele_II -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Galleria_Vittorio_Emanuele_II">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Shopping"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Milan"/>
+        <ItalyTravelApp_Ontology:Address>P.za del Duomo, 20123 Milano MI, Italia</ItalyTravelApp_Ontology:Address>
+        <ItalyTravelApp_Ontology:Link>https://www.yesmilano.it/esplora/luoghi/galleria-vittorio-emanuele-ii</ItalyTravelApp_Ontology:Link>
+        <ItalyTravelApp_Ontology:Name>Galleria Vittorio Emanuele II</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Galleria_degli_Uffizzi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Galleria_degli_Uffizzi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Museums"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Florence"/>
+        <ItalyTravelApp_Ontology:Address>Piazzale degli Uffizi, 6, 50122 Firenze FI, Italia</ItalyTravelApp_Ontology:Address>
+        <ItalyTravelApp_Ontology:Link>https://www.uffizi.it/gli-uffizi</ItalyTravelApp_Ontology:Link>
+        <ItalyTravelApp_Ontology:Name>Galleria degli Uffizi</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Galleria_degli_Uffizzi"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isLocated"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Florence"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Hiking_30_Passi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Hiking_30_Passi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Hiking/Skiing"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Val_Camonica"/>
+        <ItalyTravelApp_Ontology:Name>Hiking 30 Passi Montain</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Hiking_Rifugio_Portafranca -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Hiking_Rifugio_Portafranca">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Hiking/Skiing"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Orsigna"/>
+        <ItalyTravelApp_Ontology:Name>Rigufio Portafranca</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Lago_della_Vacca -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Lago_della_Vacca">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Hiking/Skiing"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Val_Camonica"/>
+        <ItalyTravelApp_Ontology:Name>Lago della Vacca Hiking</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Milan -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Milan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#City"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Brera_District"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Castello_Sforzesco"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Corso_Buenos_Aires"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Corso_Como"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Galleria_Vittorio_Emanuele_II"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Navigli_District"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Porta_Romana"/>
+        <ItalyTravelApp_Ontology:Name>Milano</ItalyTravelApp_Ontology:Name>
+        <ItalyTravelApp_Ontology:Region>Lombardia</ItalyTravelApp_Ontology:Region>
+        <ItalyTravelApp_Ontology:Turism>High</ItalyTravelApp_Ontology:Turism>
+        <ItalyTravelApp_Ontology:Weather>Hot in Summer and cold in Winter</ItalyTravelApp_Ontology:Weather>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Milan"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasActivity"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Castello_Sforzesco"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Milan"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasActivity"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Corso_Como"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Milan"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasActivity"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Galleria_Vittorio_Emanuele_II"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Milan"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasActivity"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Navigli_District"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Milan"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasActivity"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Porta_Romana"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Milan"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasActivity"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Brera_District"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Modena -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Modena">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Town"/>
+        <ItalyTravelApp_Ontology:Name>Modena</ItalyTravelApp_Ontology:Name>
+        <ItalyTravelApp_Ontology:Region>Emilia-Romagna</ItalyTravelApp_Ontology:Region>
+        <ItalyTravelApp_Ontology:Turism>Moderate</ItalyTravelApp_Ontology:Turism>
+        <ItalyTravelApp_Ontology:Weather>Hot in Summer and cold in Winter, humid</ItalyTravelApp_Ontology:Weather>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Moyo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Moyo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Night_Life"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Florence"/>
+        <ItalyTravelApp_Ontology:Address>Via dei Benci, 23/r, 50122 Firenze FI, Italia</ItalyTravelApp_Ontology:Address>
+        <ItalyTravelApp_Ontology:Link>https://www.moyo.it</ItalyTravelApp_Ontology:Link>
+        <ItalyTravelApp_Ontology:Name>Moyo Firenze | Aperitivo - Cocktail Bar - Restaurant</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Moyo"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isLocated"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Florence"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Musei_Vaticani -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Musei_Vaticani">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Museums"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Rome"/>
+        <ItalyTravelApp_Ontology:Address>00120 Città del Vaticano</ItalyTravelApp_Ontology:Address>
+        <ItalyTravelApp_Ontology:Link>https://www.museivaticani.va/content/museivaticani/it.html</ItalyTravelApp_Ontology:Link>
+        <ItalyTravelApp_Ontology:Name>Musei Vaticani</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Museo_Capitolino -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Museo_Capitolino">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Museums"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Rome"/>
+        <ItalyTravelApp_Ontology:Address>Piazza del Campidoglio, 1, 00186 Roma RM, Italia</ItalyTravelApp_Ontology:Address>
+        <ItalyTravelApp_Ontology:Link>https://www.museicapitolini.org</ItalyTravelApp_Ontology:Link>
+        <ItalyTravelApp_Ontology:Name>Musei Capitolini</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Museo_Opera_del_Duomo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Museo_Opera_del_Duomo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Museums"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Florence"/>
+        <ItalyTravelApp_Ontology:Address>Piazza del Duomo, 9, 50122 Firenze FI, Italia</ItalyTravelApp_Ontology:Address>
+        <ItalyTravelApp_Ontology:Link>https://duomo.firenze.it/it/home</ItalyTravelApp_Ontology:Link>
+        <ItalyTravelApp_Ontology:Name>Museo dell&apos;Opera del Duomo di Firenze</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Museo_Opera_del_Duomo"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isLocated"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Florence"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Navigli_District -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Navigli_District">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Night_Life"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Milan"/>
+        <ItalyTravelApp_Ontology:Name>Navigli District</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Orsigna -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Orsigna">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Village"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Abetone"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Hiking_Rifugio_Portafranca"/>
+        <ItalyTravelApp_Ontology:Name>Orsigna</ItalyTravelApp_Ontology:Name>
+        <ItalyTravelApp_Ontology:Region>Toscana</ItalyTravelApp_Ontology:Region>
+        <ItalyTravelApp_Ontology:Turism>None</ItalyTravelApp_Ontology:Turism>
+        <ItalyTravelApp_Ontology:Weather>Warm in Summer and cold in Winter</ItalyTravelApp_Ontology:Weather>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Orsigna"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasActivity"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Abetone"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Orsigna"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasActivity"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Hiking_Rifugio_Portafranca"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Palazzo_Vecchio -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Palazzo_Vecchio">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Historical_Buildings"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Florence"/>
+        <ItalyTravelApp_Ontology:Address>P.za della Signoria, 50122 Firenze FI, Italia</ItalyTravelApp_Ontology:Address>
+        <ItalyTravelApp_Ontology:Link>https://cultura.comune.fi.it/pagina/musei-civici-fiorentini/museo-di-palazzo-vecchio</ItalyTravelApp_Ontology:Link>
+        <ItalyTravelApp_Ontology:Name>Palazzo Vecchio</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Palazzo_Vecchio"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isLocated"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Florence"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Porta_Romana -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Porta_Romana">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Night_Life"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Milan"/>
+        <ItalyTravelApp_Ontology:Name>Porta Romana</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Rome -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Rome">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#City"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Altare_della_Patria"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Colosseo"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Fori_Romani"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Galleria_Borghese"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Musei_Vaticani"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Museo_Capitolino"/>
+        <ItalyTravelApp_Ontology:isSimilarTo rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Florence"/>
+        <ItalyTravelApp_Ontology:Name>Roma</ItalyTravelApp_Ontology:Name>
+        <ItalyTravelApp_Ontology:Region>Lazio</ItalyTravelApp_Ontology:Region>
+        <ItalyTravelApp_Ontology:Turism>Hot in Summer, warm in Winter</ItalyTravelApp_Ontology:Turism>
+        <ItalyTravelApp_Ontology:Turism>Very-high</ItalyTravelApp_Ontology:Turism>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Rome"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasActivity"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Altare_della_Patria"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Rome"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasActivity"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Colosseo"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Rome"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasActivity"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Fori_Romani"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Rome"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasActivity"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Galleria_Borghese"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Rome"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasActivity"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Musei_Vaticani"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Rome"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasActivity"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Museo_Capitolino"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Spiaggia_degli_Urbini -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Spiaggia_degli_Urbini">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Sea_and_Beach"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Conero"/>
+        <ItalyTravelApp_Ontology:Name>Spiaggia degli Ubini</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Tonale -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Tonale">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Hiking/Skiing"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Val_Camonica"/>
+        <ItalyTravelApp_Ontology:Name>Tonale</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Val_Camonica -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Val_Camonica">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Village"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Case_di_Viso"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Lago_della_Vacca"/>
+        <ItalyTravelApp_Ontology:hasActivity rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Tonale"/>
+        <ItalyTravelApp_Ontology:Name>Val Camonica</ItalyTravelApp_Ontology:Name>
+        <ItalyTravelApp_Ontology:Region>Lombardia</ItalyTravelApp_Ontology:Region>
+        <ItalyTravelApp_Ontology:Turism>Low</ItalyTravelApp_Ontology:Turism>
+        <ItalyTravelApp_Ontology:Weather>Warm in Summer and cold in Winter</ItalyTravelApp_Ontology:Weather>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Val_Camonica"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasActivity"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Case_di_Viso"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Val_Camonica"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasActivity"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Lago_della_Vacca"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Val_Camonica"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasActivity"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Tonale"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Via_Tornabuoni -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Via_Tornabuoni">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Shopping"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Florence"/>
+        <ItalyTravelApp_Ontology:Name>Via Tornabuoni</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Via_Tornabuoni"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isLocated"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Florence"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Via_dei_Calzaiuoli -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Via_dei_Calzaiuoli">
+        <rdf:type rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Shopping"/>
+        <ItalyTravelApp_Ontology:isLocated rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Florence"/>
+        <ItalyTravelApp_Ontology:Name>Via dei Calzaiuoli</ItalyTravelApp_Ontology:Name>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Via_dei_Calzaiuoli"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isLocated"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Florence"/>
+        <rdfs:comment>inferred</rdfs:comment>
+    </owl:Axiom>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+
