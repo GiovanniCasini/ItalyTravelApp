@@ -2,140 +2,75 @@ from flask import Flask
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State, ALL
 import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 from rdflib import Graph, URIRef, Namespace, Literal
 from rdflib.plugins.sparql import prepareQuery
+from get_ontology import get_destinations, get_activities
 
-app = Flask(__name__)
-app_dash = dash.Dash(__name__, server=app)
+# Lista di città italiane
+destinations = get_destinations()
 
-italian_cities = ["Roma", "Milano", "Firenze", "Napoli", "Torino"]
+# Inizializza l'applicazione Flask
+app_flask = Flask(__name__)
 
-# Dati per la mappa dell'Italia
-italian_cities_coordinates = {
-    "Roma": {"lat": 41.9028, "lon": 12.4964},
-    "Milano": {"lat": 45.4642, "lon": 9.1900},
-    "Firenze": {"lat": 43.7696, "lon": 11.2558},
-    "Napoli": {"lat": 40.8522, "lon": 14.2681},
-    "Torino": {"lat": 45.0703, "lon": 7.6869},
-}
+# Inizializza l'applicazione Dash e connettila all'app Flask
+app_dash = dash.Dash(__name__, server=app_flask)
 
-# Dati per il grafico a torta degli artisti
-artists_data = {
-    "Leonardo da Vinci": 30,
-    "Michelangelo": 25,
-    "Raffaello": 20,
-    "Caravaggio": 15,
-    "Botticelli": 10,
-}
+# Funzione per ottenere le attività di una città
+def get_activities_for_city(city):
+    return get_activities()
 
-# Dati per le attività e i ristoranti (da sostituire con i tuoi dati reali)
-activities_data = ["Visitare il Colosseo", "Museo Uffizi", "Galleria degli Uffizi", "Pompei", "Piazza San Marco"]
-restaurants_data = [
-    {"name": "Trattoria da Mario", "rating": 4.5},
-    {"name": "Osteria Francescana", "rating": 5.0},
-    {"name": "L'Antica Pizzeria da Michele", "rating": 4.2},
-    {"name": "Ristorante Il Palagio", "rating": 4.8},
-    {"name": "Ristorante La Pergola", "rating": 4.9},
-]
-
+# Definisci la layout della dashboard Dash
+# Modifica la parte relativa all'output delle attività nella layout della dashboard Dash
 app_dash.layout = html.Div(children=[
-    html.Div([
-        # Menu a tendina per le città italiane
-        dcc.Dropdown(
-            id='city-dropdown',
-            options=[{'label': city, 'value': city} for city in italian_cities],
-            value=italian_cities[0],
-            style={'width': '50%'}
-        ),
-    ], style={'textAlign': 'center', 'margin-top': '20px'}),
-
-    html.Div([
-        # Mappa dell'Italia
-        dcc.Graph(
-            id='italy-map',
-        )
-    ], style={'width': '48%', 'display': 'inline-block'}),
-
-    html.Div([
-        # Grafico a torta degli artisti
-        dcc.Graph(
-            id='artists-pie-chart',
-        )
-    ], style={'width': '48%', 'display': 'inline-block'}),
-
-    html.Div([
-        # Lista di possibili attività
-        html.H3("Possibili Attività:"),
-        html.Ul(id='activities-list'),
-    ], style={'width': '48%', 'display': 'inline-block'}),
-
-    html.Div([
-        # Lista di ristoranti con rating associato
-        html.H3("Ristoranti con Rating:"),
-        html.Ul(id='restaurants-list'),
-    ], style={'width': '48%', 'display': 'inline-block'}),
+    html.H1("Choose your destination", style={'textAlign': 'center'}),
+    html.Div(
+        [
+            html.Button(città, id={'type': 'button', 'index': idx}, n_clicks=0, className='city-button', style={'width': '100px', 'height': '100px'})
+            for idx, città in enumerate(destinations)
+        ],
+        className='button-container',
+        style={'text-align': 'center'}
+    ),
+    html.Div(id='activity-output', style={'textAlign': 'center'})  # Aggiunto 'textAlign': 'center' qui
 ])
 
-# Callback per aggiornare la mappa dell'Italia
+# Modifica il callback per centrare l'output delle attività
 @app_dash.callback(
-    Output('italy-map', 'figure'),
-    [Input('city-dropdown', 'value')]
+    Output('activity-output', 'children'),
+    [Input({'type': 'button', 'index': ALL}, 'n_clicks')],
+    [State('activity-output', 'children')]
 )
-def update_italy_map(selected_city):
-    fig = px.scatter_geo(
-        locations=[selected_city],
-        locationmode='country names',
-        lon=[italian_cities_coordinates[selected_city]["lon"]],
-        lat=[italian_cities_coordinates[selected_city]["lat"]],
-        title=f'Mappa di {selected_city}',
-        projection='natural earth',
-    )
-    return fig
+def update_activities(selected_city_clicks, current_output):
+    # Trova l'indice del pulsante cliccato
+    ctx = dash.callback_context
+    clicked_button_index = int(ctx.triggered_id['index'])
 
-# Callback per aggiornare il grafico a torta degli artisti
-@app_dash.callback(
-    Output('artists-pie-chart', 'figure'),
-    [Input('city-dropdown', 'value')]
-)
-def update_artists_pie_chart(selected_city):
-    fig = px.pie(
-        names=list(artists_data.keys()),
-        values=list(artists_data.values()),
-        title=f'Percentuale dei Principali Artisti da Visitare a {selected_city}',
-    )
-    return fig
+    # Ottieni la città selezionata
+    selected_city = destinations[clicked_button_index]
 
-# Callback per aggiornare la lista di possibili attività
-@app_dash.callback(
-    Output('activities-list', 'children'),
-    [Input('city-dropdown', 'value')]
-)
-def update_activities_list(selected_city):
-    activities = activities_data  # Sostituisci con la logica per ottenere le attività reali
-    activity_items = [html.Li(activity) for activity in activities]
-    return activity_items
+    # Ottieni le attività per la città selezionata
+    activities = get_activities_for_city(selected_city)
 
-# Callback per aggiornare la lista di ristoranti con rating associato
-@app_dash.callback(
-    Output('restaurants-list', 'children'),
-    [Input('city-dropdown', 'value')]
-)
-def update_restaurants_list(selected_city):
-    restaurants = restaurants_data  # Sostituisci con la logica per ottenere i ristoranti reali
-    restaurant_items = [html.Li(f"{restaurant['name']} - Rating: {restaurant['rating']}") for restaurant in restaurants]
-    return restaurant_items
+    # Aggiorna l'output con le attività della città selezionata, centrato
+    return [
+        html.H3(f'Activities in {selected_city}', style={'textAlign': 'center'}),
+        html.Div([html.P(activity) for activity in activities], style={'textAlign': 'center'})
+    ]
 
-@app.route('/dashboard')
+# Aggiungi una route per la tua dashboard Dash
+@app_flask.route('/dashboard')
 def dashboard():
     return app_dash.index()
 
-@app.route("/")
+# Aggiungi una route di esempio per l'app Flask
+@app_flask.route("/")
 def homepage():
     return "Hello World from Flask!"
 
+# Esegui l'applicazione Flask
 if __name__ == '__main__':
-    app.run(debug=True)
+    app_flask.run(debug=True)
