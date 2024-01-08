@@ -7,7 +7,7 @@ from get_ontology import get_destinations, get_activities
 destinations = get_destinations()
 
 # Inizializza l'applicazione Flask
-app_flask = Flask(__name__)
+app_flask = Flask(__name__, static_url_path='/static')
 
 # Inizializza l'applicazione Dash e connettila all'app Flask
 app_dash = dash.Dash(__name__, server=app_flask)
@@ -35,16 +35,29 @@ def generate_city_button(city, index):
 
 app_dash.layout = html.Div(children=[
     html.H1("Choose your destination", style={'textAlign': 'center'}),
+
+    # Div per i pulsanti delle città
     html.Div([generate_city_button(city, idx) for idx, city in enumerate(destinations)],
              className='button-container', style={'text-align': 'center'}),
-    html.Div(id='activity-output'),
+
+    # Div contenitore per attività e immagine
+    html.Div([
+        # Div per attività
+        html.Div(id='activity-output', style={'width': '50%', 'display': 'inline-block', 'margin-left': '5%', 'vertical-align': 'top'}),
+        
+        # Div per l'immagine
+        html.Div(id='destination-image', style={'width': '40%', 'display': 'inline-block', 'margin-right': '5%'}),
+    ]),
+
+    # Store per il bottone selezionato
     dcc.Store(id='selected-button', data=0)
 ])
 
 # Modifica il callback per centrare l'output delle attività
 @app_dash.callback(
     [Output('activity-output', 'children'),
-     Output({'type': 'button', 'index': dash.ALL}, 'style')],
+     Output({'type': 'button', 'index': dash.ALL}, 'style'),
+     Output('destination-image', 'children')],
     [Input({'type': 'button', 'index': dash.ALL}, 'n_clicks')],
     [State('activity-output', 'children'),
      State('selected-button', 'data')]
@@ -69,24 +82,17 @@ def update_activities(selected_city_clicks, current_output, selected_button):
         html.H2(f"Consider visiting {is_similar_to}, a destination similar to {destination}."),
     ]
 
+    # Aggiorna l'immagine della destinazione
+    destination_image = html.Img(src=f'/static/images/{destination.lower()}.jpg', style={'width': '100%'})
+
     # Aggiorna lo stile dei pulsanti
     updated_button_style = [{'width': '120px', 'height': '120px', 'background-color': 'lightblue',
                              'margin': '10px', 'fontSize': '16px', 'fontWeight': 'bold'}] * len(destinations)
     updated_button_style[clicked_button_index] = {'width': '120px', 'height': '120px', 'background-color': 'lightgreen',
                                                    'margin': '10px', 'fontSize': '16px', 'fontWeight': 'bold'}
 
-    return updated_output, updated_button_style
+    return updated_output, updated_button_style, destination_image
 
-# Aggiungi una route per la tua dashboard Dash
-@app_flask.route('/dashboard')
-def dashboard():
-    return app_dash.index()
-
-# Aggiungi una route di esempio per l'app Flask
-@app_flask.route("/")
-def homepage():
-    return "Hello World from Flask!"
-
-# Esegui l'applicazione Flask
+# Aggiungi questa riga dopo la definizione di `app_dash`
 if __name__ == '__main__':
     app_flask.run(debug=True)
