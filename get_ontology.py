@@ -58,3 +58,53 @@ def get_activities(destination):
         is_similar_to = sim
    return activities, is_similar_to
 
+def get_class_activities():
+   query_string = """
+   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+   PREFIX owl: <http://www.w3.org/2002/07/owl#>
+   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX myOnt: <http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#>
+
+   SELECT (strafter(str(?subclass), "#") as ?subclassName)
+   WHERE {
+   ?subclass rdf:type owl:Class ;
+               rdfs:subClassOf* myOnt:Activities .
+      FILTER(?subclass != myOnt:Activities && ?subclass != myOnt:Art_and_Culture)
+   }
+
+   """
+
+
+   # Prepara la query
+   query = prepareQuery(query_string)
+
+   # Esegui la query e stampa i risultati
+   results = g.query(query)
+   names = [str(result[0]).replace('_', ' ') for result in results]
+   return names
+
+def get_city_from_activity(activity):
+   query_string = f"""
+   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+   PREFIX owl: <http://www.w3.org/2002/07/owl#>
+   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX myOnt: <http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#>
+
+   SELECT DISTINCT (strafter(str(?city), "#") as ?cityName)
+   WHERE {{
+      ?city rdf:type myOnt:City .
+      ?city myOnt:hasActivity ?activity .
+      ?activity rdf:type myOnt:{activity} .
+}}
+   """
+   # Prepara la query
+   query = prepareQuery(query_string)
+
+   # Esegui la query e stampa i risultati
+   results = g.query(query)
+   for row in results:
+      print(row.cityName)
+   names = [str(result[0]).replace('_', ' ') for result in results]
+   return names
+
+get_city_from_activity("Museums")

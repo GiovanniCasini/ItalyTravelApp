@@ -1,10 +1,11 @@
 from flask import Flask
 import dash
 from dash import dcc, html, Input, Output, State
-from get_ontology import get_destinations, get_activities
+from get_ontology import get_destinations, get_activities, get_class_activities, get_city_from_activity
 
 # Lista di città italiane
 destinations = get_destinations()
+activities_list = get_class_activities()
 
 # Inizializza l'applicazione Flask
 app_flask = Flask(__name__, static_url_path='/static')
@@ -39,6 +40,9 @@ app_dash.layout = html.Div(children=[
     # Div per i pulsanti delle città
     html.Div([generate_city_button(city, idx) for idx, city in enumerate(destinations)],
              className='button-container', style={'text-align': 'center'}),
+    html.H1("Choose your activity", style={'textAlign': 'center'}),
+    html.Div([generate_city_button(city, idx+len(destinations)) for idx, city in enumerate(activities_list)],
+             className='button-container', style={'text-align': 'center'}),
 
     # Div contenitore per attività e immagine
     html.Div([
@@ -67,27 +71,43 @@ def update_activities(selected_city_clicks, current_output, selected_button):
     ctx = dash.callback_context
     clicked_button_index = int(ctx.triggered_id['index'])
 
-    # Ottieni la città selezionata
-    destination = str(destinations[clicked_button_index])
+     # Handle the case when the clicked button is related to an activity
+    if clicked_button_index >= len(destinations):
+        activity_index = clicked_button_index - len(destinations)
+        print(activity_index)
+        destination = str(activities_list[activity_index])
+        # Adjust the index for activities
+        activities = get_city_from_activity(destination.replace(" ", "_"))
+        # Adjust the clicked_button_index for styling
+        clicked_button_index = activity_index + len(destinations)
+            # Aggiorna l'output con le attività della città selezionata, centrato
+        updated_output = [
+            html.H1(f'{destination}', style={'color': 'red'}),
+            html.H2(f'Explore {destination} - Information:', style={'marginTop': '20px'}),
+            html.P(f"Discover some interesting activities in {destination}:"),
+            html.Ul([html.Li(activity) for activity in activities]),
 
-    # Ottieni le attività per la città selezionata
-    activities, is_similar_to = get_activities_for_city(destination)
-
-    # Aggiorna l'output con le attività della città selezionata, centrato
-    updated_output = [
-        html.H1(f'{destination}', style={'color': 'red'}),
-        html.H2(f'Explore {destination} - Information:', style={'marginTop': '20px'}),
-        html.P(f"Discover some interesting activities in {destination}:"),
-        html.Ul([html.Li(activity) for activity in activities]),
-        html.H2(f"Consider visiting {is_similar_to}, a destination similar to {destination}."),
-    ]
+        ]
+    else:
+        # The clicked button corresponds to a destination
+        destination = str(destinations[clicked_button_index])
+        # Get activities for the selected destination
+        activities, is_similar_to = get_activities_for_city(destination.replace(" ", "_"))
+        # Aggiorna l'output con le attività della città selezionata, centrato
+        updated_output = [
+            html.H1(f'{destination}', style={'color': 'red'}),
+            html.H2(f'Explore {destination} - Information:', style={'marginTop': '20px'}),
+            html.P(f"Discover some interesting activities in {destination}:"),
+            html.Ul([html.Li(activity) for activity in activities]),
+            html.H2(f"Consider visiting {is_similar_to}, a destination similar to {destination}."),
+        ]
 
     # Aggiorna l'immagine della destinazione
     destination_image = html.Img(src=f'/static/images/{destination.lower()}.jpg', style={'width': '100%'})
 
     # Aggiorna lo stile dei pulsanti
     updated_button_style = [{'width': '120px', 'height': '120px', 'background-color': 'lightblue',
-                             'margin': '10px', 'fontSize': '16px', 'fontWeight': 'bold'}] * len(destinations)
+                             'margin': '10px', 'fontSize': '16px', 'fontWeight': 'bold'}] * len(destinations + activities_list)
     updated_button_style[clicked_button_index] = {'width': '120px', 'height': '120px', 'background-color': 'lightgreen',
                                                    'margin': '10px', 'fontSize': '16px', 'fontWeight': 'bold'}
 
