@@ -23,37 +23,38 @@ def get_destinations():
    """
    query = prepareQuery(query_string)
    results = g.query(query)
-   #for row in results:
-      #print(row.individualName)
 
-   dests = []
-   for row in results:
-      dests.append(row)
-   return dests
+   names = [str(result[0]).replace('_', ' ') for result in results]
+   return names
 
 
-def get_activities():
+def get_activities(destination):
    # Definisci la query SPARQL per ottenere gli individui della classe Destination
-   query_string = """
-   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-   PREFIX owl: <http://www.w3.org/2002/07/owl#>
-   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-   PREFIX myOnt: <http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#>
+   query_string = f"""
+      PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+      PREFIX owl: <http://www.w3.org/2002/07/owl#>
+      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+      PREFIX myOnt: <http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#>
 
-   SELECT
-   (strafter(str(?predicate), "#") as ?predicateName)
-   (strafter(str(?relatedIndividual), "#") as ?relatedIndividualName)
-   WHERE {
-   myOnt:Florence ?predicate ?relatedIndividual.
-   }
+      SELECT
+      (strafter(str(?predicate), "#") as ?predicateName)
+      (strafter(str(?relatedIndividual), "#") as ?relatedIndividualName)
+      WHERE {{
+         myOnt:{destination} ?predicate ?relatedIndividual.
+      }}
    """
+
    query = prepareQuery(query_string)
    results = g.query(query)
-   #for row in results:
-      #print(row.individualName)
 
    activities = []
+   is_similar_to = ""
    for row in results:
-      activities.append(row)
-   return activities
+      if row[0] == Literal('hasActivity'):
+        activity_name = str(row[1]).replace('_', ' ')
+        activities.append(activity_name)
+      if row[0] == Literal('isSimilarTo'):
+        sim = str(row[1]).replace('_', ' ')
+        is_similar_to = sim
+   return activities, is_similar_to
 

@@ -1,13 +1,6 @@
 from flask import Flask
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
-from dash.dependencies import Input, Output, State, ALL
-import plotly.express as px
-import plotly.graph_objects as go
-import pandas as pd
-from rdflib import Graph, URIRef, Namespace, Literal
-from rdflib.plugins.sparql import prepareQuery
+from dash import dcc, html, Input, Output, State
 from get_ontology import get_destinations, get_activities
 
 # Lista di città italiane
@@ -20,46 +13,69 @@ app_flask = Flask(__name__)
 app_dash = dash.Dash(__name__, server=app_flask)
 
 # Funzione per ottenere le attività di una città
-def get_activities_for_city(city):
-    return get_activities()
+def get_activities_for_city(dest):
+    return get_activities(dest)
 
 # Definisci la layout della dashboard Dash
-# Modifica la parte relativa all'output delle attività nella layout della dashboard Dash
+def generate_city_button(city, index):
+    return html.Button(
+        city,
+        id={'type': 'button', 'index': index},
+        n_clicks=0,
+        className='city-button',
+        style={
+            'width': '120px',
+            'height': '120px',
+            'background-color': 'lightblue',
+            'margin': '10px',
+            'fontSize': '16px',
+            'fontWeight': 'bold'
+        }
+    )
+
 app_dash.layout = html.Div(children=[
     html.H1("Choose your destination", style={'textAlign': 'center'}),
-    html.Div(
-        [
-            html.Button(città, id={'type': 'button', 'index': idx}, n_clicks=0, className='city-button', style={'width': '100px', 'height': '100px'})
-            for idx, città in enumerate(destinations)
-        ],
-        className='button-container',
-        style={'text-align': 'center'}
-    ),
-    html.Div(id='activity-output', style={'textAlign': 'center'})  # Aggiunto 'textAlign': 'center' qui
+    html.Div([generate_city_button(city, idx) for idx, city in enumerate(destinations)],
+             className='button-container', style={'text-align': 'center'}),
+    html.Div(id='activity-output'),
+    dcc.Store(id='selected-button', data=0)
 ])
 
 # Modifica il callback per centrare l'output delle attività
 @app_dash.callback(
-    Output('activity-output', 'children'),
-    [Input({'type': 'button', 'index': ALL}, 'n_clicks')],
-    [State('activity-output', 'children')]
+    [Output('activity-output', 'children'),
+     Output({'type': 'button', 'index': dash.ALL}, 'style')],
+    [Input({'type': 'button', 'index': dash.ALL}, 'n_clicks')],
+    [State('activity-output', 'children'),
+     State('selected-button', 'data')]
 )
-def update_activities(selected_city_clicks, current_output):
+def update_activities(selected_city_clicks, current_output, selected_button):
     # Trova l'indice del pulsante cliccato
     ctx = dash.callback_context
     clicked_button_index = int(ctx.triggered_id['index'])
 
     # Ottieni la città selezionata
-    selected_city = destinations[clicked_button_index]
+    destination = str(destinations[clicked_button_index])
 
     # Ottieni le attività per la città selezionata
-    activities = get_activities_for_city(selected_city)
+    activities, is_similar_to = get_activities_for_city(destination)
 
     # Aggiorna l'output con le attività della città selezionata, centrato
-    return [
-        html.H3(f'Activities in {selected_city}', style={'textAlign': 'center'}),
-        html.Div([html.P(activity) for activity in activities], style={'textAlign': 'center'})
+    updated_output = [
+        html.H1(f'{destination}', style={'color': 'red'}),
+        html.H2(f'Explore {destination} - Information:', style={'marginTop': '20px'}),
+        html.P(f"Discover some interesting activities in {destination}:"),
+        html.Ul([html.Li(activity) for activity in activities]),
+        html.H2(f"Consider visiting {is_similar_to}, a destination similar to {destination}."),
     ]
+
+    # Aggiorna lo stile dei pulsanti
+    updated_button_style = [{'width': '120px', 'height': '120px', 'background-color': 'lightblue',
+                             'margin': '10px', 'fontSize': '16px', 'fontWeight': 'bold'}] * len(destinations)
+    updated_button_style[clicked_button_index] = {'width': '120px', 'height': '120px', 'background-color': 'lightgreen',
+                                                   'margin': '10px', 'fontSize': '16px', 'fontWeight': 'bold'}
+
+    return updated_output, updated_button_style
 
 # Aggiungi una route per la tua dashboard Dash
 @app_flask.route('/dashboard')
