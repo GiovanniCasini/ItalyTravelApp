@@ -12,11 +12,28 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX myOnt: <http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#>
 
-SELECT DISTINCT (strafter(str(?city), "#") as ?cityName)
+SELECT DISTINCT ?placeName
 WHERE {
-    ?city rdf:type myOnt:City .
-    ?city myOnt:hasActivity ?activity .
-    ?activity rdf:type myOnt:Museums .
+  {
+    ?city rdf:type myOnt:City ;
+          myOnt:hasActivity ?activity .
+    ?activity rdf:type myOnt:Skiing .
+    BIND(strafter(str(?city), "#") as ?placeName)
+  }
+  UNION
+  {
+    ?village rdf:type myOnt:Village ;
+             myOnt:hasActivity ?activity .
+    ?activity rdf:type myOnt:Skiing .
+    BIND(strafter(str(?village), "#") as ?placeName)
+  }
+  UNION
+  {
+    ?town rdf:type myOnt:Town ;
+          myOnt:hasActivity ?activity .
+    ?activity rdf:type myOnt:Skiing .
+    BIND(strafter(str(?town), "#") as ?placeName)
+  }
 }
 """
 
@@ -27,4 +44,4 @@ query = prepareQuery(query_string)
 # Esegui la query e stampa i risultati
 results = g.query(query)
 for row in results:
-    print(row.cityName)
+    print(row.placeName)
