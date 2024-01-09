@@ -44,45 +44,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasReastaurant -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasReastaurant">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasProperties"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Destination"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasTurism -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasTurism">
-        <owl:equivalentProperty>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isTurismOf"/>
-            </rdf:Description>
-        </owl:equivalentProperty>
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasProperties"/>
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isTurismOf"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Destination"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasWeather -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasWeather">
-        <owl:equivalentProperty>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isTurismOf"/>
-            </rdf:Description>
-        </owl:equivalentProperty>
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasProperties"/>
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isWeatherOf"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Destination"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isLocated -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isLocated">
@@ -106,24 +67,6 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Destination"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Destination"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isTurismOf -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isTurismOf">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isProperties"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Destination"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isWeatherOf -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isWeatherOf">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isProperties"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Destination"/>
     </owl:ObjectProperty>
     
 
@@ -510,14 +453,14 @@
     </owl:NamedIndividual>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Conero"/>
-        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isSimilarTo"/>
-        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Argentario"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasActivity"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Spiaggia_degli_Urbini"/>
         <rdfs:comment>inferred</rdfs:comment>
     </owl:Axiom>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Conero"/>
-        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#hasActivity"/>
-        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Spiaggia_degli_Urbini"/>
+        <owl:annotatedProperty rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#isSimilarTo"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/agata/ontologies/2023/11/ItalyTravelApp_Ontology#Argentario"/>
         <rdfs:comment>inferred</rdfs:comment>
     </owl:Axiom>
     
