@@ -34,23 +34,29 @@ def generate_city_button(city, index):
         }
     )
 
+# Applica uno sfondo al layout direttamente in Python
 app_dash.layout = html.Div(children=[
-    html.H1("Choose your destination", style={'textAlign': 'center'}),
-
-    # Div per i pulsanti delle città
+    html.H1("ITALY TRAVEL PLANNER", style={'textAlign': 'center','margin-top': '2%','font-family': 'Arial, sans-serif', 'font-size': '50px'}),
+    html.H2("Choose your destination", style={'textAlign': 'center','font-family': 'Arial','margin-top': '5%'}),
+    
+    # Applica lo stile di sfondo al div del pulsante delle città
     html.Div([generate_city_button(city, idx) for idx, city in enumerate(destinations)],
-             className='button-container', style={'text-align': 'center'}),
-    html.H1("Choose your activity", style={'textAlign': 'center'}),
+             className='button-container', style={'text-align': 'center', 'background': 'linear-gradient(to right, #001F3F, #001C2E)'}),
+    
+    html.H2("...or choose which activity you would like to do in Italy", style={'textAlign': 'center','font-family': 'Arial','margin-top': '5%'}),
+    
+    # Applica lo stile di sfondo al div delle attività
     html.Div([generate_city_button(city, idx+len(destinations)) for idx, city in enumerate(activities_list)],
-             className='button-container', style={'text-align': 'center'}),
+             className='button-container', style={'text-align': 'center', 'background': 'linear-gradient(to right, #001F3F, #001C2E)'}),
 
     # Div contenitore per attività e immagine
     html.Div([
         # Div per attività
-        html.Div(id='activity-output', style={'width': '50%', 'display': 'inline-block', 'margin-left': '5%', 'vertical-align': 'top'}),
+        html.Div(id='activity-output', style={'width': '50%', 'display': 'inline-block', 'font-size': '20px',
+                                               'margin-left': '5%', 'margin-top': '5%', 'vertical-align': 'top'}),
         
         # Div per l'immagine
-        html.Div(id='destination-image', style={'width': '40%', 'display': 'inline-block', 'margin-right': '5%'}),
+        html.Div(id='destination-image', style={'width': '40%', 'display': 'inline-block', 'margin-right': '5%', 'margin-top': '5%'}),
     ]),
 
     # Store per il bottone selezionato
@@ -71,7 +77,7 @@ def update_activities(selected_city_clicks, current_output, selected_button):
     ctx = dash.callback_context
     clicked_button_index = int(ctx.triggered_id['index'])
 
-     # Handle the case when the clicked button is related to an activity
+    # Handle the case when the clicked button is related to an activity
     if clicked_button_index >= len(destinations):
         activity_index = clicked_button_index - len(destinations)
         destination = str(activities_list[activity_index])
@@ -79,13 +85,12 @@ def update_activities(selected_city_clicks, current_output, selected_button):
         activities = get_city_from_activity(destination.replace(" ", "_"))
         # Adjust the clicked_button_index for styling
         clicked_button_index = activity_index + len(destinations)
-            # Aggiorna l'output con le attività della città selezionata, centrato
+        # Aggiorna l'output con le attività della città selezionata, centrato
         updated_output = [
             html.H1(f'{destination}', style={'color': 'red'}),
             html.H2(f'Explore {destination} - Information:', style={'marginTop': '20px'}),
             html.P(f"Here are some cities in which you can find {destination}:"),
             html.Ul([html.Li(activity) for activity in activities]),
-
         ]
     else:
         # The clicked button corresponds to a destination
