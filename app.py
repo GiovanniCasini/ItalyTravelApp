@@ -74,7 +74,6 @@ def update_activities(selected_city_clicks, current_output, selected_button):
      # Handle the case when the clicked button is related to an activity
     if clicked_button_index >= len(destinations):
         activity_index = clicked_button_index - len(destinations)
-        print(activity_index)
         destination = str(activities_list[activity_index])
         # Adjust the index for activities
         activities = get_city_from_activity(destination.replace(" ", "_"))
@@ -84,7 +83,7 @@ def update_activities(selected_city_clicks, current_output, selected_button):
         updated_output = [
             html.H1(f'{destination}', style={'color': 'red'}),
             html.H2(f'Explore {destination} - Information:', style={'marginTop': '20px'}),
-            html.P(f"Discover some interesting activities in {destination}:"),
+            html.P(f"Here are some cities in which you can find {destination}:"),
             html.Ul([html.Li(activity) for activity in activities]),
 
         ]
@@ -103,7 +102,7 @@ def update_activities(selected_city_clicks, current_output, selected_button):
         ]
 
     # Aggiorna l'immagine della destinazione
-    destination_image = html.Img(src=f'/static/images/{destination.lower()}.jpg', style={'width': '100%'})
+    destination_image = html.Img(src=f'/static/images/{destination.lower().replace(" ", "_")}.jpg', style={'width': '100%'})
 
     # Aggiorna lo stile dei pulsanti
     updated_button_style = [{'width': '120px', 'height': '120px', 'background-color': 'lightblue',

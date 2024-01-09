@@ -102,8 +102,6 @@ def get_city_from_activity(activity):
 
    # Esegui la query e stampa i risultati
    results = g.query(query)
-   for row in results:
-      print(row.cityName)
    names = [str(result[0]).replace('_', ' ') for result in results]
    return names
 
