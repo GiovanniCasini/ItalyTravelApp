@@ -104,5 +104,3 @@ def get_city_from_activity(activity):
    results = g.query(query)
    names = [str(result[0]).replace('_', ' ') for result in results]
    return names
-
-get_city_from_activity("Museums")
